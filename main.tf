@@ -6,7 +6,7 @@ module "resource_group" {
 }
 
 module "networking" {
-  source = "./modules/vnet"
+  source              = "./modules/vnet"
   resource_group_name = var.resource_group_name # ← creates dependency on Step 1
   location            = var.location
   vnet_name           = var.vnet_name
@@ -15,14 +15,14 @@ module "networking" {
   nsg_name            = var.nsg_name
   admin_source_ip     = var.admin_source_ip
   tags                = var.tags
-  depends_on = [module.resource_group]
+  depends_on          = [module.resource_group]
 }
 
 
 resource "random_password" "dc_admin" {
   length           = 20
   special          = true
-  override_special = "!@#%^&*()-_=+[]{}<>?,."   # ← removed $, ", `, ', \, /, :, ;, |
+  override_special = "!@#%^&*()-_=+[]{}<>?,." # ← removed $, ", `, ', \, /, :, ;, |
   min_upper        = 2
   min_lower        = 2
   min_numeric      = 2

@@ -19,7 +19,7 @@ nsg_name        = "nsg-avd-lab"
 admin_source_ip = "49.206.133.67"
 
 
- 
+
 # Step 3 - Domain Controller (added by apply-step3.ps1)
 dc_vm_name             = "dc01"
 dc_vm_size             = "Standard_B2s"
